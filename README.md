@@ -1,7 +1,7 @@
-# Knight.Neritage
-Knight.Neritage -- It's a simple console game with an online story
-Knight.Neritage | Offical documentation
-Version 0.001 alpha
+# Knight.Heritage
+Knight.Heritage -- It's a simple console game with an online story
+Knight.Heritage | Offical documentation
+Version 0.0.1 alpha
 
 Eng
 Input rules:
