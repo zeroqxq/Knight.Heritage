@@ -83,7 +83,11 @@ class Proof():
     title = None
     description = None
     city = None
-
+    def onlprget(self):
+        print("Название" , self.title)
+        print("Общая характеристика:" , self.description)
+        print("Город обнаружения:" , self.city)
+        print("--------------------------------------------------")
 class BlackMan(Proof):
     name = None
     age = None
@@ -445,15 +449,17 @@ def ex_press(key):
             time.sleep(1.7)
             yvedki = input()
             if yvedki == "1":
-                pass
+                gl2_ring_kasimir()
             if yvedki == "2":
-                pass
+                gl2_altaris_night_vstr()
         if com == "f":
             print("-" *10)
             if inblackman == True:
                 print("Новая улика. \n Проходите сюжет побочные задания и основной сюжет чтобы откртывать новую информацию. \n Чтобы перейти к миссиям войдите в меню уведмолений")
                 print("-----------------------------------------")
                 blackman.proof_get()
+            elif glvn == True:
+                golosvnebe.onlprget()
           
         if com == "e":
             print("--" *15)
@@ -513,9 +519,6 @@ if check_file == True:
         exp = lprofile.readline()
         money = lprofile.readline()
         reyting = lprofile.readline()
-        brym_gg_save = lprofile.readline()
-        gg_save = lprofile.readline()
-        no_save = lprofile.readline()
         plusdeystv = lprofile.readline()
         minusdeystv = lprofile.readline()
         save = lprofile.readline().strip()
@@ -949,12 +952,6 @@ if save == "gl2ct0":
                 lprofile.write("\n")
                 lprofile.write(reyting)
                 lprofile.write("\n")
-                lprofile.write(brym_gg_save)
-                lprofile.write("\n")
-                lprofile.write(gg_save)
-                lprofile.write("\n")
-                lprofile.write(no_save)
-                lprofile.write("\n")
                 lprofile.wrire(plusdeystv)
                 lprofile.write("\n")
                 lprofile.write(minusdeystv)
@@ -1137,7 +1134,7 @@ if altaris_free == True:
     if ykr == True:
         print("-----------------------------------------")
         print("Украшения изготовлены. Для продолжения основного сюжета войдите в меню уведомлений через командное меню.")
-        yved.append(" - Основной сюжет. Кольца у Казимира.")
+        yved.append("1 - Основной сюжет. Кольца у Казимира.")
     ex_press("esc")
 if osn_s == True:
     time.sleep(1)
@@ -1163,12 +1160,6 @@ if osn_s == True:
                 lprofile.write("\n")
                 lprofile.write(reyting)
                 lprofile.write("\n")
-                lprofile.write(brym_gg_save)
-                lprofile.write("\n")
-                lprofile.write(gg_save)
-                lprofile.write("\n")
-                lprofile.write(no_save)
-                lprofile.write("\n")
                 lprofile.wrire(plusdeystv)
                 lprofile.write("\n")
                 lprofile.write(minusdeystv)
@@ -1182,3 +1173,27 @@ if osn_s == True:
             soxranka = 0
             save = "gl3ct0"
             break
+if save == "gl3ct0":   
+    print()
+    print()
+    print()
+    print("************")
+    print("Внеплановая попытка десинхронизаци")
+    print()
+    print("Работник 111 -- Сейчас мы вернем его")
+    print("Cинхронизация.....")
+    for i in tqdm(range(10)):
+        time.sleep(0.1)
+    os.system("cls")
+    print("Брум -- Все хорошо. Ты потерял сознание")
+    print(profile_name, 'брум ты не слышал голоса.')
+    print("Брум - нет")
+    golosvnebe = Proof()
+    golosvnebe.city = "No city"
+    golosvnebe.title = "Странный голос"
+    golosvnebe.description = "Голос в небе говорил про десинхронизацию. Возможно это чары колдуньи"
+    glvn = True
+    time.sleep(1)
+    print("Герои прибыли к кузнец в Эмеральде")
+    print()
+    print("Кузнец -- что вы хотите купить?")
