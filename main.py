@@ -21,7 +21,7 @@ save = "0"
 
 # -----------
 armor = 3 + lvl*5
-attack  = 10 + lvl*20
+attack  = 10 + lvl*5
 hp = 150 + 50*lvl + armor
 yved =[]
 temp = 0
@@ -44,8 +44,10 @@ hpki2 = 46 ; apki2 = 10 ; opki2 = 15
 hpki3 = 60 ; apki3 = 13 ; opki3 = 20
 hkn1 = 30 ;akn1 = 5 ;  okn1 = 20
 hkn2 = 40 ; akn2 = 10 ; okn2 = 25
-hkn3 = 55 ; akn3 = 10 ; okn3 = 25
-hdki1 = 60 ; adki1 = 12 ; odki1 = 50
+hkn3 = 65 ; akn3 = 16 ; okn3 = 25
+hdki1 = 80 ; adki1 = 12 ; odki1 = 50
+hduelant1 = 61 ; aduelant1 = 16 ; oduelant1 = 20
+hduelant2 = 54 ; aduelant2 = 19 ; oduelant2 = 50
 hbandit_classic = 35 ; abandit_classic = 13 ;obandit_classic = 20
 #------------------------------
 #Боссы 
@@ -59,12 +61,16 @@ elegant_sword = False ; es = 10
 iron_sword = False ; irs = 15
 military_sword = False ; ms = 21
 diamond_sword = False ; ds = 28
-legendary_sword =False ; ls = 35
+legend_sword =False ; ls = 100
 grom_armor = False ; ga = 5
+military_armor = False; ms = 20
+legend_armor = False ; ms = 40
 plor = []
 #----------------------------
+rung = False
 study = False
 ykr = False
+opy =False
 study1 = False
 study3 =False
 esccl = False
@@ -78,6 +84,7 @@ slran = 0
 popitkacod = 0
 dvish = 0
 needwalk = 0
+glvn = False
 #улики 
 class Proof():
     title = None
@@ -177,6 +184,7 @@ def sled(radiys , maxradiys):
     global yspesno_sleska
     global stels
     global ispesh_dvish
+    stels = int(stels)
     int(radiys)
     int(stels)
     radiys = radiys - stels
@@ -238,7 +246,94 @@ def sleska_vostan():
     chel_yshla = False
     vas_poimali = False
     ispesh_dvish = False
-    
+def kyz_em():
+    global rung
+    global opy
+    rung = False 
+    print("Кузнец -- что вы хотите купить?")
+    print("Брум -- Мы хотим купить самые лучшие доспехи у вас")
+    print("Cамое лучшее оружие в лавке кузнеца --- Закаленный брильянтовый меч. Цена - 8000" )
+    print("Cамое лучшая броня в лавке кузнеца --- Броня опытного военного . Цена - 6000" )
+    print("Итог : 14000. Оплата - Нажимайте клавишу - shift")
+    keyboard.wait("shift")
+    if money >= 14000:
+        print("Оплата успешна")
+        opy = True
+    elif money < 14000:
+        print("У вас недостатоно денег. Отправляйтесь на ринг там вы сможете зарботать больше")
+        rung = True
+def boi_em():
+    if rung == True:
+
+        print('Добро пожаловать на ринг!. Что начать бой нажмите s')
+        keyboard.wait("s")
+        boy(hduelant1 , aduelant1 , oduelant1)
+        print("Получены деньги - 1000")
+        money = money + 1000
+        if money >= 15000:
+            print()
+        else:
+            print("Чтобы начать бой нажмите s")
+            keyboard.wait("s")
+            boy(hduelant1 , aduelant1 , oduelant1)
+            print("Получены деньги - 1000")
+            money = money + 1000
+            if money >= 15000:
+                    print()
+            else:
+                print("Чтобы начать бой нажмите s")
+                keyboard.wait("s")
+                boy(hduelant1 , aduelant1 , oduelant1)
+                print("Получены деньги - 1000")
+                money = money + 1000
+                if money >= 15000:
+                    print()
+                else:
+                        print("Чтобы начать бой нажмите s")
+                        keyboard.wait("s")
+                        boy(hduelant1 , aduelant1 , oduelant1)
+                        print("Получены деньги - 1000")
+                        money = money + 1000
+                        if money >= 15000:
+                            print()
+                        else:
+                            print("Чтобы начать бой нажмите s")
+                            keyboard.wait("s")
+                            boy(hduelant1 , aduelant1 , oduelant1)
+                            print("Получены деньги - 1000")
+                            money = money + 1000
+                            if money >= 15000:
+                                print()
+                            else:
+                                print("Чтобы начать бой нажмите s")
+                                keyboard.wait("s")
+                                boy(hduelant1 , aduelant1 , oduelant1)
+                                print("Получены деньги - 1000")
+                                money = money + 1000
+                                if money >= 15000:
+                                    print()
+                                else:
+                                    print("Чтобы начать бой нажмите s")
+                                    keyboard.wait("s")
+                                    boy(hduelant1 , aduelant1 , oduelant1)
+                                    print("Получены деньги - 1000")
+                                    money = money + 1000
+                                    if money >= 15000:
+                                            print()
+                                    else:
+                                            print("Чтобы начать бой нажмите s")
+                                            keyboard.wait("s")
+                                            boy(hduelant1 , aduelant1 , oduelant1)
+                                            print("Получены деньги - 1000")
+                                            money = money + 1000
+    elif rung == False:
+        print()
+def em_os():
+    kyz_em()
+    boi_em()
+    kyz_em()
+    boi_em()
+    kyz_em()
 
 def gl2_altaris_night_vstr():
     global popitkacod
@@ -330,6 +425,8 @@ def gl2_altaris_night_vstr():
     peshe_vibor = input("y - бежать , n или любая другая клавиша - остаться")
     if peshe_vibor == "y":
         print("КОНЕЦ ПОБОЧНОГО СЮЖЕТА АЛЬТАРИСА")
+        yved.remove("2 - Побочный сюжет. Слежка за странным человек. Ночная встреча")
+        money = money + 500
     elif peshe_vibor == "n":
         print("Ардин - Вы не выйдите отсуда живыми!")
         time.sleep(1.5)
@@ -340,6 +437,7 @@ def gl2_altaris_night_vstr():
         print("Герои начинают сражаться с Ардином. Но проигрывают и колдунья их отбрасывает далеко от пещеры")
         time.sleep(1.5)
         print("КОНЕЦ ПОБОЧНОГО СЮЖЕТА АЛЬТАРИСА")
+        money = money + 500
         yved.remove("2 - Побочный сюжет. Слежка за странным человек. Ночная встреча")
 def gl2_ring_kasimir():
     global osn_s
@@ -381,9 +479,10 @@ def boy(x, y, o ):
     global vin
     global armor
     global attack
+    global money
     temp = x
     armor = 3 + lvl*5
-    attack  = 10 + lvl*20
+    attack  = 10 + lvl*5
     hp = 150 + 50*lvl + armor
     exp = exp + o
     lvl = exp//100
@@ -403,10 +502,12 @@ def boy(x, y, o ):
             hp = 100 + 50*lvl 
             print()
             armor = 3 + lvl*5
-            attack  = 10 + lvl*20
+            attack  = 10 + lvl*5
             hp = 150 + 50*lvl + armor
             exp = exp + o
             lvl = exp//100
+            money = money + 500 + o*3
+            print("Вы получили " , 500 + o*3 , 'монет')
             print("Вы получили опыт:" , o)
             print("Ваш текущий уровень " , lvl)
             x = temp
@@ -437,8 +538,6 @@ def ex_press(key):
         if com == "h":
             print("Меню - m")
             print("Помощь  - h")
-            print("Инвентарь - e")
-            print("Карта - k")
             print("Меню уведомлений - j")
             print("Cбор улик - f")
             print("Выйти из меню команд - q")
@@ -461,33 +560,6 @@ def ex_press(key):
             elif glvn == True:
                 golosvnebe.onlprget()
           
-        if com == "e":
-            print("--" *15)
-            print(" ИНВЕНАТРЬ ")
-            print(*plor , sep="\n")
-            global ch
-            ch = input("Введите название оружия которое хотите применить. Введите точку для отмены. Чтобы снять все мечи введите drop:")
-            if ch == ".":
-             continue
-            if  ("Костяной меч" or ch == "костяной меч" or ch == "кс" or ch == "ks" ) and "Костяной меч" in plor:
-                print("Меч применен")
-                attack = attack + bs
-                study1 = True
-                continue
-            if  ("Меч крови" or ch == "меч крови" or ch == "мк" or ch == "bs" ) and "Меч крови" in plor:
-                print("Меч применен")
-                attack = attack + bls
-                continue
-            if  ("броня громовежца" or ch == "Броня громовежца" or ch == "бг" or ch == "bg" ) and "Броня громовежца" in plor:
-                print("Броня успешно применена")
-                armor = armor + ga
-                study3 = True
-                continue
-            
-            if ch == "drop":
-                attack = 10 + lvl*20
-                print("Вы сняли все оружия")
-                continue
         if com == "m":
             lvl = exp//100
             print("Меню")
@@ -569,14 +641,15 @@ if save == "0":
             hpki1 = hpki1 - nr
             if hpki1 <= 0:
                 print("Отлично!! Вы победели вашего первого монстра")
-                print("С него выпал отличный оружие дающие +1 к аттаке. Войди в инвентарь с помощью меню команд и примени меч!!")
-                plor.append("Костяной меч")
+                print("С него выпал отличный оружие дающие +1 к аттаке. Меч применился автоматически")
+                attack = 10 + lvl*5 + bs
                 hp = 100 + 50*lvl
                 hpki1 = 35
                 exp = exp + 10
+                money = money + 100
+                print("Получены 100 монет")
                 break
-    ex_press("esc")
-    if study1 == True and esccl == True:
+    if 2==2:
         esccl = False
         os.system('cls')
         time.sleep(1) 
@@ -623,6 +696,7 @@ if save == "0":
         time.sleep(1)
         print("Брум --- Ничего себе не все обученные рыцари могут справится с таким чудовищем а ты!!. Кто же ты такой!!!")
         time.sleep(3)
+        money = money + 1000
         os.system('cls')
         print()
         print()
@@ -720,11 +794,11 @@ if save == "0":
         time.sleep(1)
         boy(hknight_boss, aknight_boss, oknight_boss)
         print("Клар ---" , "Удивительно! Это победа!!" , profile_name , " наш победитель он получает меч крови. И титул рыцаря академии")
-        plor.append("Меч крови")
-        print("Брум ---" , "Как ты их победил! Я удивлен давай попробум применить меч крови")
+        attack = 10 + lvl*5 + bls
+        print("Брум ---" , "Как ты их победил! Я удивлен ")
         money += 1500
-        ex_press("esc")
-        if esccl == True:
+
+        if 2 == 2:
                 esccl = False
                 print("Брум ---" , "Хороший меч")
                 print("Клар ---" , "Вы также получаете 1500 тысячи монет.")
@@ -756,18 +830,17 @@ if save == "0":
                     print("Предмет приобретен")
                     money = money - 1400
                     print("Ваш баланс" , money)
-                    plor.append("Броня громовежца")
+                    armor = 3 + lvl*5 + ga
                     break
-                if (buy == "броня громовежца" or buy == "bп" or buy == "бг") and money < 1400 :
+                if (buy == "броня громовежца" or buy == "bg" or buy == "бг") and money < 1400 :
                     print("Недостаточно средств")
                     print("Ваш баланс" , money)
                     break
                 else:
                     print("Вам необходимо купить другой предмет")
                     continue
-        print("Брум ---" , "Хорошая броня. Давай ее применим")
-        ex_press("esc")
-        if esccl == True and study3 == True:
+        print("Брум ---" , "Хорошая броня. ")
+        if 2 == 2:
                 print("Брум ---" , "Отличная броня. Давай теперь отправимся в .......")
                 print(profile_name , " --- СТОП!!! Мы занимаемся не тем. Мне нужно вернуться домой")
                 print("Брум ---" , "Давай тогда отправимся Барнету")
@@ -797,6 +870,7 @@ if save == "0":
                 time.sleep(0.5)
                 print(profile_name , " --- Ясно")
                 time.sleep(3)
+                money = money + 1000
                 os.system('cls')
                 print()
                 print()
@@ -868,9 +942,9 @@ if save == "gl2ct0":
                     print('Взять деньги (y) \n отказаться (n или любая другая клавиша)')
                     dengiilinet = input()
                     if dengiilinet == "y":
-                        print("Получены деньги:3000")
+                        print("Получены деньги:1500")
                         time.sleep(1)
-                        money = money + 3000
+                        money = money + 1500
                         print("Брум - Ну идем дальше в Альтарис")
                         break
                     if dengiilinet == "n":
@@ -937,6 +1011,9 @@ if save == "gl2ct0":
         if soxranka == "s":
             soxranka = 0
             save = "gl2ct1"
+            stels = str(stels)
+            plusdeystv=str(plusdeystv)
+            minusdeystv = str(minusdeystv)
             exp = str(exp)
             money = str(money)
             reyting =str(reyting)
@@ -952,11 +1029,20 @@ if save == "gl2ct0":
                 lprofile.write("\n")
                 lprofile.write(reyting)
                 lprofile.write("\n")
-                lprofile.wrire(plusdeystv)
+                lprofile.write(plusdeystv)
                 lprofile.write("\n")
                 lprofile.write(minusdeystv)
                 lprofile.write("\n")
                 lprofile.write(save)
+            stels = int(stels)
+            exp = int(exp)
+            money = int(money)
+            reyting =int(reyting)
+            brym_gg_save = int(brym_gg_save)
+            gg_save = int(gg_save)
+            no_save = int(no_save)
+            plusdeystv = int(plusdeystv)
+            minusdeystv = int(minusdeystv)
         elif soxranka == "d":
             save = "gl2ct1"
             soxranka = 0
@@ -992,10 +1078,10 @@ if save == "gl2ct1":
         if kolvib == "y":
             print(profile_name , "Я собераюсь продать кольцо. Сколько оно будет стоить?")
             time.sleep(1)
-            print("Казимир: Примерно 8000?")
+            print("Казимир: Примерно 4000?")
             time.sleep(1)
             print(profile_name , "Я готов")
-            money = money + 8000
+            money = money + 4000
             break
         elif kolvib == "n":
             print(profile_name ,  "Хорошо, мы согласны. Давайте начнём работу над кольцом.")
@@ -1145,6 +1231,9 @@ if osn_s == True:
         if soxranka == "s":
             soxranka = 0
             save = "gl3ct0"
+            stels = str(stels)
+            plusdeystv=str(plusdeystv)
+            minusdeystv = str(minusdeystv)
             exp = str(exp)
             money = str(money)
             reyting =str(reyting)
@@ -1160,11 +1249,20 @@ if osn_s == True:
                 lprofile.write("\n")
                 lprofile.write(reyting)
                 lprofile.write("\n")
-                lprofile.wrire(plusdeystv)
+                lprofile.write(plusdeystv)
                 lprofile.write("\n")
                 lprofile.write(minusdeystv)
                 lprofile.write("\n")
                 lprofile.write(save)
+            stels = int(stels)
+            exp = int(exp)
+            money = int(money)
+            reyting =int(reyting)
+            brym_gg_save = int(brym_gg_save)
+            gg_save = int(gg_save)
+            no_save = int(no_save)
+            plusdeystv = int(plusdeystv)
+            minusdeystv = int(minusdeystv)
         elif soxranka == "d":
             save = "gl3ct0"
             soxranka = 0
@@ -1173,15 +1271,15 @@ if osn_s == True:
             soxranka = 0
             save = "gl3ct0"
             break
+        money = money + 1000
 if save == "gl3ct0":   
     print()
     print()
     print()
     print("************")
     print("Внеплановая попытка десинхронизаци")
-    print()
-    print("Работник 111 -- Сейчас мы вернем его")
     print("Cинхронизация.....")
+    print("************")
     for i in tqdm(range(10)):
         time.sleep(0.1)
     os.system("cls")
@@ -1189,11 +1287,10 @@ if save == "gl3ct0":
     print(profile_name, 'брум ты не слышал голоса.')
     print("Брум - нет")
     golosvnebe = Proof()
-    golosvnebe.city = "No city"
+    golosvnebe.city = "Город не определен"
     golosvnebe.title = "Странный голос"
     golosvnebe.description = "Голос в небе говорил про десинхронизацию. Возможно это чары колдуньи"
     glvn = True
     time.sleep(1)
     print("Герои прибыли к кузнец в Эмеральде")
     print()
-    print("Кузнец -- что вы хотите купить?")
