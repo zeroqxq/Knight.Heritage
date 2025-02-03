@@ -41,17 +41,17 @@ lprofile = 0
 #Игровые враги
 hpki1 = 35 ; opki1 = 10
 hpki2 = 46 ; apki2 = 10 ; opki2 = 15
-hpki3 = 60 ; apki3 = 13 ; opki3 = 20
-hkn1 = 30 ;akn1 = 5 ;  okn1 = 20
-hkn2 = 40 ; akn2 = 10 ; okn2 = 25
-hkn3 = 65 ; akn3 = 16 ; okn3 = 25
-hdki1 = 80 ; adki1 = 12 ; odki1 = 50
+hpki3 = 70 ; apki3 = 13 ; opki3 = 20
+hkn1 = 40 ;akn1 = 5 ;  okn1 = 20
+hkn2 = 50 ; akn2 = 10 ; okn2 = 25
+hkn3 = 75 ; akn3 = 16 ; okn3 = 25
+hdki1 = 90 ; adki1 = 12 ; odki1 = 50
 hduelant1 = 61 ; aduelant1 = 16 ; oduelant1 = 20
-hduelant2 = 54 ; aduelant2 = 19 ; oduelant2 = 50
-hbandit_classic = 35 ; abandit_classic = 13 ;obandit_classic = 20
+hduelant2 = 67 ; aduelant2 = 19 ; oduelant2 = 50
+hbandit_classic = 53 ; abandit_classic = 19 ;obandit_classic = 20
 #------------------------------
 #Боссы 
-hknight_boss = 100 ; aknight_boss = 17 ; oknight_boss = 100
+hknight_boss = 110 ; aknight_boss = 20 ; oknight_boss = 110
 #----------------------------
 #Игровые оружия
 bone_sword = False ; bs = 1
@@ -247,13 +247,18 @@ def sleska_vostan():
     vas_poimali = False
     ispesh_dvish = False
 def kyz_em():
-    global rung
+    global rung , money
     global opy
     rung = False 
     print("Кузнец -- что вы хотите купить?")
+    time.sleep(1)
     print("Брум -- Мы хотим купить самые лучшие доспехи у вас")
+    time.sleep(1)
     print("Cамое лучшее оружие в лавке кузнеца --- Закаленный брильянтовый меч. Цена - 8000" )
+    time.sleep(1)
     print("Cамое лучшая броня в лавке кузнеца --- Броня опытного военного . Цена - 6000" )
+    time.sleep(1)
+    print("Баланс - " , money )
     print("Итог : 14000. Оплата - Нажимайте клавишу - shift")
     keyboard.wait("shift")
     if money >= 14000:
@@ -263,74 +268,81 @@ def kyz_em():
         print("У вас недостатоно денег. Отправляйтесь на ринг там вы сможете зарботать больше")
         rung = True
 def boi_em():
+    global money
     if rung == True:
 
         print('Добро пожаловать на ринг!. Что начать бой нажмите s')
         keyboard.wait("s")
         boy(hduelant1 , aduelant1 , oduelant1)
         print("Получены деньги - 1000")
+        print("Баланс - " , money)
         money = money + 1000
         if money >= 15000:
-            print()
+            pass
         else:
             print("Чтобы начать бой нажмите s")
             keyboard.wait("s")
             boy(hduelant1 , aduelant1 , oduelant1)
             print("Получены деньги - 1000")
+            print("Баланс - " , money)
             money = money + 1000
             if money >= 15000:
-                    print()
+                    pass
             else:
                 print("Чтобы начать бой нажмите s")
                 keyboard.wait("s")
                 boy(hduelant1 , aduelant1 , oduelant1)
                 print("Получены деньги - 1000")
+                print("Баланс - " , money)
                 money = money + 1000
                 if money >= 15000:
-                    print()
+                    pass
                 else:
                         print("Чтобы начать бой нажмите s")
                         keyboard.wait("s")
                         boy(hduelant1 , aduelant1 , oduelant1)
                         print("Получены деньги - 1000")
+                        print("Баланс - " , money)
                         money = money + 1000
                         if money >= 15000:
-                            print()
+                            pass
                         else:
                             print("Чтобы начать бой нажмите s")
                             keyboard.wait("s")
                             boy(hduelant1 , aduelant1 , oduelant1)
                             print("Получены деньги - 1000")
+                            print("Баланс - " , money)
                             money = money + 1000
                             if money >= 15000:
-                                print()
+                                pass
                             else:
                                 print("Чтобы начать бой нажмите s")
                                 keyboard.wait("s")
                                 boy(hduelant1 , aduelant1 , oduelant1)
                                 print("Получены деньги - 1000")
+                                print("Баланс - " , money)
                                 money = money + 1000
                                 if money >= 15000:
-                                    print()
+                                    pass
                                 else:
                                     print("Чтобы начать бой нажмите s")
                                     keyboard.wait("s")
                                     boy(hduelant1 , aduelant1 , oduelant1)
                                     print("Получены деньги - 1000")
+                                    print("Баланс - " , money)
                                     money = money + 1000
                                     if money >= 15000:
-                                            print()
+                                            pass
                                     else:
                                             print("Чтобы начать бой нажмите s")
                                             keyboard.wait("s")
                                             boy(hduelant1 , aduelant1 , oduelant1)
                                             print("Получены деньги - 1000")
+                                            print("Баланс - " , money)
                                             money = money + 1000
     elif rung == False:
-        print()
+        pass
 def em_os():
-    kyz_em()
-    boi_em()
     kyz_em()
     boi_em()
     kyz_em()
@@ -577,9 +589,6 @@ def ex_press(key):
             global esccl
             esccl = True
             break
-os.system('cls')
-for i in tqdm(range(18)):
-        time.sleep(0.1)
 os.system('cls')
 print("Добро пожаловать в Knight.Neritage. Введите ваш профиль, если его нет автоматически создастся новый.")
 profile_name = input()
@@ -1278,19 +1287,22 @@ if save == "gl3ct0":
     print()
     print("************")
     print("Внеплановая попытка десинхронизаци")
+    time.sleep(2)
     print("Cинхронизация.....")
+    time.sleep(2)
     print("************")
-    for i in tqdm(range(10)):
-        time.sleep(0.1)
+    time.sleep(2)
     os.system("cls")
+    time.sleep(1)
     print("Брум -- Все хорошо. Ты потерял сознание")
+    time.sleep(1)
     print(profile_name, 'брум ты не слышал голоса.')
+    time.sleep(1)
     print("Брум - нет")
+    time.sleep(1)
     golosvnebe = Proof()
     golosvnebe.city = "Город не определен"
     golosvnebe.title = "Странный голос"
     golosvnebe.description = "Голос в небе говорил про десинхронизацию. Возможно это чары колдуньи"
     glvn = True
-    time.sleep(1)
-    print("Герои прибыли к кузнец в Эмеральде")
-    print()
+    em_os()
